@@ -31,7 +31,8 @@ export const register = async (req, res) => {
       data: {
         name,
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        isVerified: true
       }
     });
 
@@ -53,10 +54,10 @@ export const register = async (req, res) => {
 
     );
 
-    await sendOtpEmail(
-      email,
-      otp
-    );
+    // await sendOtpEmail(
+    //   email,
+    //   otp
+    // );
 
     res.status(201).json({
 
@@ -102,16 +103,16 @@ export const login = async (req, res) => {
 
     }
 
-    if (!user.isVerified) {
+//   //   if (!user.isVerified) {
 
-  return res.status(400).json({
+//   // return res.status(400).json({
 
-    message:
-      "Please verify your email first"
+//   //   message:
+//   //     "Please verify your email first"
 
-  });
+//   // });
 
-}
+// }
 
     // compare password
     const isMatch =

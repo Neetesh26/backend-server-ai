@@ -136,7 +136,7 @@ router.get(
   );
 
  res.redirect(
-  "https://teslalab-ai.vercel.app/dashboard"
+  "https://authentication-czxg-pj9erh9dm-teslalabs-projects.vercel.app/dashboard"
 );
 
 }

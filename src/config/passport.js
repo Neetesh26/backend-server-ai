@@ -13,10 +13,10 @@ passport.use(
     {
 
       clientID:
-        process.env.GITHUB_CLIENT_ID,
+        process.env.GITHUB_CLIENT_ID || "dummy-github-client-id",
 
       clientSecret:
-        process.env.GITHUB_CLIENT_SECRET,
+        process.env.GITHUB_CLIENT_SECRET || "dummy-github-client-secret",
 
       callbackURL:
         "http://localhost:3000/api/auth/github/callback"

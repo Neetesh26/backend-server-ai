@@ -5,8 +5,8 @@ const authMiddleware =
 
     try {
 
-      const token =
-        req.cookies.token;
+      const bearerToken = req.headers.authorization?.split(' ')[1];
+      const token = req.cookies.token || bearerToken;
 
       if (!token) {
 

@@ -135,9 +135,8 @@ router.get(
 
   );
 
- res.redirect(
-  "https://authentication-czxg-pj9erh9dm-teslalabs-projects.vercel.app/dashboard"
-);
+  const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+  res.redirect(`${frontendUrl}/dashboard?token=${token}`);
 
 }
 

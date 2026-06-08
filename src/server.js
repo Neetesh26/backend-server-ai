@@ -1,5 +1,5 @@
+import "dotenv/config";
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import session from "express-session";
@@ -11,10 +11,6 @@ import dashboardRoutes from "./routes/dashboard.routes.js";
 import "./jobs/scan.worker.js";
 import paymentRoutes from "./routes/payment.routes.js";
 import githubRoutes from "./routes/github.routes.js";
-
-
-
-dotenv.config();
 
 const app = express();
 

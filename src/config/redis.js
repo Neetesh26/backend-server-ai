@@ -7,4 +7,8 @@ const redis = new Redis(
   }
 );
 
+redis.on("error", (err) => {
+  console.log("[REDIS CLIENT WARNING] Offline:", err.message);
+});
+
 export default redis;

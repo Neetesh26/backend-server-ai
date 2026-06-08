@@ -10,12 +10,12 @@ import {
   sendOtp,
   verifyOtp,
   forgotPassword,
-resetPassword
+  resetPassword
 
 } from "../controllers/auth.controller.js";
 
 import { getGithubRepos }
-from "../controllers/github.controller.js";
+  from "../controllers/github.controller.js";
 
 import authMiddleware from "../middleware/auth.middleware.js";
 
@@ -98,47 +98,47 @@ router.get(
     }
   ),
 
- async (req, res) => {
+  async (req, res) => {
 
-  const token = jwt.sign(
+    const token = jwt.sign(
 
-    {
-      id: req.user.id
-    },
+      {
+        id: req.user.id
+      },
 
-    process.env.JWT_SECRET,
+      process.env.JWT_SECRET,
 
-    {
-      expiresIn: "7d"
-    }
+      {
+        expiresIn: "7d"
+      }
 
-  );
+    );
 
-  res.cookie(
+    res.cookie(
 
-    "token",
+      "token",
 
-    token,
+      token,
 
-    {
+      {
 
-      httpOnly: true,
+        httpOnly: true,
 
-      secure: false,
+        secure: false,
 
-      sameSite: "lax",
+        sameSite: "lax",
 
-      maxAge:
-        7 * 24 * 60 * 60 * 1000
+        maxAge:
+          7 * 24 * 60 * 60 * 1000
 
-    }
+      }
 
-  );
+    );
 
-  const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
-  res.redirect(`${frontendUrl}/dashboard?token=${token}`);
+    const frontendUrl = process.env.FRONTEND_URL;
+    res.redirect(`${frontendUrl}/dashboard?token=${token}`);
 
-}
+  }
 
 );
 
